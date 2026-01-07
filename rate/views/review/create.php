@@ -18,7 +18,6 @@
     $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Rate Reviews'), 'url' => ['index']];
     $this->params['breadcrumbs'][] = $this->title;
     $pid                           = Yii::$app->request->get('pid');
-    echo $pid;
 ?>
 <div class="rate-review-create">
 

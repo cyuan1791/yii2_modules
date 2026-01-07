@@ -1,12 +1,11 @@
 <?php
-
 namespace frontend\modules\rate\controllers;
 
 use frontend\modules\rate\models\RateReview;
 use frontend\modules\rate\models\RateReviewSearch;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * ReviewController implements the CRUD actions for RateReview model.
@@ -22,7 +21,7 @@ class ReviewController extends Controller
             parent::behaviors(),
             [
                 'verbs' => [
-                    'class' => VerbFilter::className(),
+                    'class'   => VerbFilter::className(),
                     'actions' => [
                         'delete' => ['POST'],
                     ],
@@ -38,11 +37,21 @@ class ReviewController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new RateReviewSearch();
+        $email = \Yii::$app->user->identity->email;
+        // the session var is set in index.php
+        $pid = \Yii::$app->session->get("$email");
+        \Yii::$app->session->remove("$email");
+
+        return $this->redirect(['indexa', 'RateReviewSearch[product_id]' => $pid]);
+
+    }
+    public function actionIndexa()
+    {
+        $searchModel  = new RateReviewSearch();
         $dataProvider = $searchModel->search($this->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
+        return $this->render('indexa', [
+            'searchModel'  => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
