@@ -1,5 +1,4 @@
 <?php
-
 namespace frontend\modules\rate\models;
 
 use Yii;
@@ -39,7 +38,8 @@ class RateReview extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['product_id', 'title', 'email', 'author', 'content', 'created_at', 'updated_at'], 'required'],
+            //[['product_id', 'title', 'email', 'author', 'content', 'created_at', 'updated_at'], 'required'],
+            //[['product_id', 'title', 'content', 'created_at', 'updated_at'], 'required'],
             [['product_id', 'click', 'rating', 'status', 'created_at', 'updated_at'], 'integer'],
             [['brief', 'content'], 'string'],
             [['title'], 'string', 'max' => 255],
@@ -54,16 +54,16 @@ class RateReview extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
+            'id'         => Yii::t('app', 'ID'),
             'product_id' => Yii::t('app', 'Product ID'),
-            'title' => Yii::t('app', 'Title'),
-            'email' => Yii::t('app', 'Email'),
-            'author' => Yii::t('app', 'Author'),
-            'brief' => Yii::t('app', 'Brief'),
-            'content' => Yii::t('app', 'Content'),
-            'click' => Yii::t('app', 'Click'),
-            'rating' => Yii::t('app', 'Rating'),
-            'status' => Yii::t('app', 'Status'),
+            'title'      => Yii::t('app', 'Title'),
+            'email'      => Yii::t('app', 'Email'),
+            'author'     => Yii::t('app', 'User ID'),
+            'brief'      => Yii::t('app', 'Review'),
+            'content'    => Yii::t('app', 'Content'),
+            'click'      => Yii::t('app', 'Click'),
+            'rating'     => Yii::t('app', 'Rating'),
+            'status'     => Yii::t('app', 'Status'),
             'created_at' => Yii::t('app', 'Created At'),
             'updated_at' => Yii::t('app', 'Updated At'),
         ];
