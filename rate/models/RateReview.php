@@ -55,17 +55,17 @@ class RateReview extends \yii\db\ActiveRecord
     {
         return [
             'id'         => Yii::t('app', 'ID'),
-            'product_id' => Yii::t('app', 'Product ID'),
+            'product_id' => Yii::t('app', ''),
             'title'      => Yii::t('app', 'Title'),
-            'email'      => Yii::t('app', 'Email'),
-            'author'     => Yii::t('app', 'User ID'),
+            'email'      => Yii::t('app', ''),
+            'author'     => Yii::t('app', ''),
             'brief'      => Yii::t('app', 'Review'),
-            'content'    => Yii::t('app', 'Content'),
+            'content'    => Yii::t('app', ''),
             'click'      => Yii::t('app', 'Click'),
             'rating'     => Yii::t('app', 'Rating'),
             'status'     => Yii::t('app', 'Status'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'created_at' => Yii::t('app', ''),
+            'updated_at' => Yii::t('app', ''),
         ];
     }
 

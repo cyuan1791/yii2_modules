@@ -29,21 +29,10 @@
 
         <?php $form = ActiveForm::begin(); ?>
 
-        <?php echo $form->field($model, 'product_id')->hiddenInput(['value' => $pid]) ?>
 
         <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-        <?php echo $form->field($model, 'email')->hiddenInput(
-            ['value' => Yii::$app->user->identity->email]) ?>
 
-        <?php echo $form->field($model, 'author')->hiddenInput(
-            ['value' => Yii::$app->user->identity->username]) ?>
-        <?php echo $form->field($model, 'content')->hiddenInput(
-            ['value' => Yii::$app->user->identity->username]) ?>
-        <?php echo $form->field($model, 'created_at')->hiddenInput(
-            ['value' => time()]) ?>
-        <?php echo $form->field($model, 'updated_at')->hiddenInput(
-            ['value' => time()]) ?>
 
 
 
@@ -56,6 +45,12 @@
         <div class="form-group">
             <?php echo Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>
         </div>
+        <?php echo $form->field($model, 'product_id')->hiddenInput(['value' => $pid]) ?>
+        <?php echo $form->field($model, 'email')->hiddenInput(['value' => Yii::$app->user->identity->email]) ?>
+        <?php echo $form->field($model, 'author')->hiddenInput(['value' => Yii::$app->user->identity->username]) ?>
+        <?php echo $form->field($model, 'content')->hiddenInput(['value' => Yii::$app->user->identity->username]) ?>
+        <?php echo $form->field($model, 'created_at')->hiddenInput(['value' => time()]) ?>
+        <?php echo $form->field($model, 'updated_at')->hiddenInput(['value' => time()]) ?>
 
         <?php ActiveForm::end(); ?>
 
