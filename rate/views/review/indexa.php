@@ -15,7 +15,9 @@
 <div class="rate-review-index">
 
     <p>
+        <?php if (! Yii::$app->user->isGuest) {?>
         <?php echo Html::a(Yii::t('app', 'Create Rate Review'), ['create', 'pid' => '_ProductID_'], ['class' => 'btn btn-success']) ?>
+        <?php }?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>

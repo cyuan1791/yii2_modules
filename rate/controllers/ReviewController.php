@@ -57,10 +57,10 @@ class ReviewController extends Controller
  */
     public function actionIndex()
     {
-        $email = \Yii::$app->user->identity->email;
+        //$email = \Yii::$app->user->identity->email;
         // the session var is set in index.php
-        $pid = \Yii::$app->session->get("$email");
-        \Yii::$app->session->remove("$email");
+        $pid = \Yii::$app->session->get("ProductId");
+        \Yii::$app->session->remove("ProductId");
 
         return $this->redirect(['indexa', 'RateReviewSearch[product_id]' => $pid]);
 
