@@ -27,17 +27,12 @@
 
         <?php $form = ActiveForm::begin(); ?>
 
+        <?php echo $form->field($model, 'rating')->textInput() ?>
 
         <?php echo $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
-
-
-
-
-
         <?php echo $form->field($model, 'brief')->textarea(['rows' => 6]) ?>
 
 
-        <?php echo $form->field($model, 'rating')->textInput() ?>
 
 
         <div class="form-group">

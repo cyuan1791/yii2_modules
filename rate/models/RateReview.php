@@ -40,6 +40,8 @@ class RateReview extends \yii\db\ActiveRecord
         return [
             //[['product_id', 'title', 'email', 'author', 'content', 'created_at', 'updated_at'], 'required'],
             //[['product_id', 'title', 'content', 'created_at', 'updated_at'], 'required'],
+            [['rating'], 'integer', 'min' => 1, 'max' => 5],
+
             [['product_id', 'click', 'rating', 'status', 'created_at', 'updated_at'], 'integer'],
             [['brief', 'content'], 'string'],
             [['title'], 'string', 'max' => 255],
