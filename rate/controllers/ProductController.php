@@ -1,12 +1,11 @@
 <?php
-
 namespace frontend\modules\rate\controllers;
 
 use frontend\modules\rate\models\RateProduct;
 use yii\data\ActiveDataProvider;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
 /**
  * RateController implements the CRUD actions for RateProduct model.
@@ -21,10 +20,42 @@ class ProductController extends Controller
         return array_merge(
             parent::behaviors(),
             [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
+                'verbs'  => [
+                    'class'   => VerbFilter::className(),
                     'actions' => [
                         'delete' => ['POST'],
+                    ],
+                ],
+
+                'access' => [
+                    'class' => \yii\filters\AccessControl::className(),
+                    'rules' => [
+
+                        [
+                            'allow'   => true,
+                            'actions' => ['index'],
+                            'roles'   => ['Staff'],
+                        ],
+                        [
+                            'allow'   => true,
+                            'actions' => ['view'],
+                            'roles'   => ['Staff'],
+                        ],
+                        [
+                            'allow'   => true,
+                            'actions' => ['create'],
+                            'roles'   => ['Staff'],
+                        ],
+                        [
+                            'allow'   => true,
+                            'actions' => ['update'],
+                            'roles'   => ['Staff'],
+                        ],
+                        [
+                            'allow'   => true,
+                            'actions' => ['delete'],
+                            'roles'   => ['Staff'],
+                        ],
                     ],
                 ],
             ]

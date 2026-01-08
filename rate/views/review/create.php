@@ -21,7 +21,6 @@
 ?>
 <div class="rate-review-create">
 
-    <h1><?php echo Html::encode($this->title) ?></h1>
 
 
     <div class="rate-review-form">

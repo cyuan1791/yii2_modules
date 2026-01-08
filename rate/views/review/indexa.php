@@ -14,8 +14,6 @@
 ?>
 <div class="rate-review-index">
 
-    <h1><?php echo Html::encode($this->title) ?></h1>
-
     <p>
         <?php echo Html::a(Yii::t('app', 'Create Rate Review'), ['create', 'pid' => '_ProductID_'], ['class' => 'btn btn-success']) ?>
     </p>
