@@ -62,7 +62,9 @@ class ReviewController extends Controller
         $pid = \Yii::$app->session->get("ProductId");
         \Yii::$app->session->remove("ProductId");
 
-        return $this->redirect(['indexa', 'RateReviewSearch[product_id]' => $pid]);
+        //return $this->redirect(['indexa', 'RateReviewSearch[product_id]' => $pid]);
+        return $this->redirect("?r=rate%2Freview%2Findexa&RateReviewSearch%5Bproduct_id%5D=${pid}");
+
 
     }
     public function actionIndexa()
